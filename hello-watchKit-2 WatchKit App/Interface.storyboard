@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6724" systemVersion="14B25" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3735"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="hello_watchKit_2_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <label alignment="center" text="Hello Watchkit" id="1qX-3n-fwk"/>
+                        <separator alignment="left" id="vOG-ud-3F0">
+                            <color key="color" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </separator>
+                        <button width="1" alignment="left" title="View Map" id="QWA-pr-DKv">
+                            <connections>
+                                <segue destination="xtp-ql-cS1" kind="modal" identifier="segueToMap" id="5Wn-rt-lQn"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Features" id="H3L-Q9-ZvC">
+                            <connections>
+                                <action selector="onBrowseButtontapped" destination="AgC-eL-Hgc" id="h3M-yD-yCV"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Minions" id="vOW-Jb-d0n">
+                            <connections>
+                                <segue destination="9C0-F8-REW" kind="push" id="qUk-ru-g4y"/>
+                            </connections>
+                        </button>
+                    </items>
+                </controller>
+            </objects>
+        </scene>
+        <!--Map Interface Controller-->
+        <scene sceneID="fZ7-ej-yZk">
+            <objects>
+                <controller id="xtp-ql-cS1" customClass="MapInterfaceController" customModule="hello_watchKit_2_WatchKit_Extension">
+                    <items>
+                        <map alignment="left" id="uzn-fv-gs1"/>
+                    </items>
+                    <connections>
+                        <outlet property="mapView" destination="uzn-fv-gs1" id="q5w-2a-2bN"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="870" y="389"/>
+        </scene>
+        <!--Minion Interface Controller-->
+        <scene sceneID="nKB-sO-WEO">
+            <objects>
+                <controller id="9C0-F8-REW" customClass="MinionInterfaceController" customModule="hello_watchKit_2_WatchKit_Extension">
+                    <items>
+                        <table alignment="left" layout="vertical" id="ATk-L3-COV">
+                            <items>
+                                <tableRow identifier="minionRow" id="gSD-Yt-Qxx" customClass="MinionRowController" customModule="hello_watchKit_2_WatchKit_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="1I0-Rm-m9Q">
+                                        <items>
+                                            <imageView width="0.29999999999999999" height="50" alignment="left" id="CdQ-Hb-UDq"/>
+                                            <label alignment="left" text="Label" id="bCy-dO-EFO"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="image" destination="CdQ-Hb-UDq" id="1th-LV-xay"/>
+                                        <outlet property="nameLabel" destination="bCy-dO-EFO" id="FZ2-vI-meN"/>
+                                        <segue destination="Kdi-Nw-XQO" kind="push" id="rLM-6S-mPf"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="ATk-L3-COV" id="L9K-RM-XvZ"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="257" y="720"/>
+        </scene>
+        <!--Minion Detail Interface Controller-->
+        <scene sceneID="cAn-1N-D2p">
+            <objects>
+                <controller id="Kdi-Nw-XQO" customClass="MinionDetailInterfaceController" customModule="hello_watchKit_2_WatchKit_Extension">
+                    <items>
+                        <label alignment="center" text="Label" id="YIg-E0-pRS"/>
+                        <imageView width="136" height="128" alignment="left" id="umK-EZ-RNt"/>
+                    </items>
+                    <connections>
+                        <outlet property="image" destination="umK-EZ-RNt" id="dWY-QR-TBy"/>
+                        <outlet property="label" destination="YIg-E0-pRS" id="wZb-kc-Cno"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="257" y="1002.5"/>
+        </scene>
+        <!--FeatureInterfaceController-->
+        <scene sceneID="xGO-C2-6PL">
+            <objects>
+                <controller identifier="FeatureInterfaceController" id="dBR-WF-7im" customClass="FeatureInterfaceController" customModule="hello_watchKit_2_WatchKit_Extension">
+                    <items>
+                        <label alignment="center" text="Feature" id="fqy-LG-jFM">
+                            <fontDescription key="font" type="system" pointSize="21"/>
+                        </label>
+                        <imageView width="136" height="122" alignment="left" id="TV7-fb-jbh"/>
+                    </items>
+                    <connections>
+                        <outlet property="featureImage" destination="TV7-fb-jbh" id="uk6-y5-jUJ"/>
+                        <outlet property="featureLabel" destination="fqy-LG-jFM" id="6JB-S8-dtZ"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="870" y="614.5"/>
+        </scene>
+    </scenes>
+</document>
